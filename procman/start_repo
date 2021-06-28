@@ -13,6 +13,11 @@ cmd "03_start_egohand_ros" {
     host = "localhost";
 }
 
+cmd "rviz" {
+    exec = "rviz";
+    host = "localhost";
+}
+
 script "start_repo" 
 {
     start cmd "01_core" wait "running";

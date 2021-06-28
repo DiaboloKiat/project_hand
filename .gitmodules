@@ -1,0 +1,6 @@
+[submodule "catkin_ws/src/egohands_ros"]
+	path = catkin_ws/src/egohands_ros
+	url = git@github.com:DiaboloKiat/egohands_ros.git
+[submodule "catkin_ws/src/bodyparts_ros"]
+	path = catkin_ws/src/bodyparts_ros
+	url = git@github.com:DiaboloKiat/bodyparts_ros.git

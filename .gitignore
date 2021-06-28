@@ -1,0 +1,10 @@
+devel/
+build/
+__pycache__/
+
+*.bag
+
+
+.catkin_workspace
+*.vscode
+*.mp4

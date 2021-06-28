@@ -3,7 +3,7 @@ build/
 __pycache__/
 
 *.bag
-
+*.pth
 
 .catkin_workspace
 *.vscode

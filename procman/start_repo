@@ -9,7 +9,7 @@ cmd "02_start_bodyparts_ros" {
 }
 
 cmd "03_start_egohand_ros" {
-    exec = "roslaunch egohand_ros egohand_ros.launch";
+    exec = "roslaunch egohands_ros egohands.launch";
     host = "localhost";
 }
 

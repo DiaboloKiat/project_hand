@@ -2,32 +2,6 @@
 Changelog for package realsense2_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-2.2.22 (2021-02-18)
--------------------
-* Fix mass of d415
-* Consistent add_plug in xacros and launch files
-* Contributors: Manuel Stahl, Tim Übelhör, doronhi
-
-2.2.21 (2020-12-31)
--------------------
-
-2.2.20 (2020-11-19)
--------------------
-* Add urdf file for l515
-* Contributors: doronhi
-
-2.2.18 (2020-10-26)
--------------------
-* Feature: Add name to usb_plug to enable multiple copies of usb_plug model.
-* Fix mass of d435 - from lgulich
-* Contributors: Guillaume, doronhi, lgulich
-
-2.2.17 (2020-09-09)
--------------------
-
-2.2.16 (2020-08-06)
--------------------
-
 2.2.15 (2020-07-13)
 -------------------
 * Merge remote-tracking branch 'origin/development' into development

@@ -4,4 +4,11 @@ This repo is to detect hand or body parts. It submodule two repo:
     - forked from [patrosAT/bodyparts_ros](https://github.com/patrosAT/bodyparts_ros)
 - [egohands_ros](https://github.com/DiaboloKiat/egohands_ros)
     - forked from [patrosAT/egohands_ros](https://github.com/patrosAT/egohands_ros)
+- [ggcnn_humanseg_ros](https://github.com/DiaboloKiat/ggcnn_humanseg_ros)
+    - forked from [patrosAT/ggcnn_humanseg_ros](https://github.com/patrosAT/ggcnn_humanseg_ros)
+
+
+
+
+
 

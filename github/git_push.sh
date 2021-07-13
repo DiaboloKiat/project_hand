@@ -46,7 +46,7 @@ git commit -m "${message} on egohands_ros"
 git push
 
 echo "--------------------------------------------------------------------------------"
-echo "--------------------------push ggcnn_humanseg_ros-------------------------------------"
+echo "--------------------------push ggcnn_humanseg_ros-------------------------------"
 echo "--------------------------------------------------------------------------------"
 cd ~/project_hand/catkin_ws/src/ggcnn_humanseg_ros
 git add -A

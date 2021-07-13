@@ -59,19 +59,6 @@ if [ "$CONFLICTS" -gt 0 ] ; then
 fi
 
 echo "---------------------------------------------------------------------------"
-echo "--------------------------pull vision_opencv-------------------------------"
-echo "---------------------------------------------------------------------------"
-cd ~/project_hand/catkin_ws/src/sensors/vision_opencv
-git checkout melodic
-git pull
-
-CONFLICTS=$(git ls-files -u | wc -l)
-if [ "$CONFLICTS" -gt 0 ] ; then
-   echo "There is conflict in vision_opencv. Aborting"
-   return 1
-fi
-
-echo "---------------------------------------------------------------------------"
 echo "--------------------------pull realsense-ros-------------------------------"
 echo "---------------------------------------------------------------------------"
 cd ~/project_hand/catkin_ws/src/sensors/realsense-ros

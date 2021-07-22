@@ -11,6 +11,9 @@ git checkout master
 cd ~/project_hand/catkin_ws/src/ggcnn_humanseg_ros
 git checkout master
 
+cd ~/project_hand/catkin_ws/src/sensors/vision_opencv
+git checkout melodic
+
 cd ~/project_hand/catkin_ws/src/sensors/realsense-ros
 git checkout 2.2.15
 

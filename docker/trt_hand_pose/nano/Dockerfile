@@ -31,17 +31,20 @@ RUN apt-get -o Acquire::ForceIPv4=true update && apt-get -yq dist-upgrade \
     gedit \
     wget \
     sudo \
-    python3-dev \
-    pkg-config \
     lsb-release \
     build-essential \
     net-tools \
     dirmngr \
     gnupg2 \
     mercurial \
+    gtk+-3.0 \
     libcanberra-gtk-module \
     libcanberra-gtk3-module \
     libpcap-dev \
+    libusb-1.0 \
+    tzdata \
+    libglfw3-dev \
+    libmetis-dev \
     python-gtk2 \
     python-gobject \
     python-tk \
@@ -51,7 +54,18 @@ RUN apt-get -o Acquire::ForceIPv4=true update && apt-get -yq dist-upgrade \
     python3-empy  \
     python3-scipy   \
     python3-setuptools \
-    python3-empy  \
+    python3-dev \
+    python3-yaml \
+    libfltk1.3-dev \ 
+    freeglut3-dev \ 
+    libpng-dev \ 
+    libjpeg-dev \
+    libxft-dev \ 
+    libxinerama-dev \ 
+    libtiff5-dev \ 
+    netbase \ 
+    fluid \ 
+    xterm \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
@@ -64,7 +78,7 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys C1CF6E31E6
 # install ros packages
 ENV ROS_DISTRO melodic
 RUN apt-get update && apt-get install -y \ 
-    ros-$ROS_DISTRO-desktop-full \
+    ros-${ROS_DISTRO}-desktop-full \
     ros-$ROS_DISTRO-serial \
     ros-$ROS_DISTRO-soem \
     ros-$ROS_DISTRO-openslam-gmapping \
@@ -93,11 +107,11 @@ RUN apt-get update && apt-get install -y \
     ros-$ROS_DISTRO-teleop-twist-joy \
     ros-$ROS_DISTRO-rosserial-arduino \
     ros-$ROS_DISTRO-rosserial \
+    ros-$ROS_DISTRO-cv-bridge \
     python-rosdep \
     python-rosinstall \
     python-rosinstall-generator \
     python-wstool \
-    python3-matplotlib \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
@@ -110,40 +124,33 @@ RUN rosdep init \
 RUN pip3 install --upgrade pip setuptools
 
 RUN pip3 install \
-    digi-xbee==1.3.0 \
-    pyyaml \
+    numpy \
     rospkg \
+    catkin-tools\
     cython \
-    catkin-tools \
-    matplotlib \
+    pandas \
+    image \
+    Pillow \
     pandas \
     pypozyx \
-    requests \
-    scikit-image \
-    scikit-learn \
-    gdown \
-    seaborn \
-    modern_robotics \ 
-    chumpy \ 
-    trimesh \
-    traitlets \
-    tqdm \
-    pycpd \
-    easydict \
-    shapely \
-    lmdb \ 
-    colour \
-    tqdm \
-    pycocotools
+    empy \
+    gdown 
 
 #################################### Pytorch ####################################
 
-# WORKDIR /tmp
-RUN wget https://nvidia.box.com/shared/static/3ibazbiwtkl181n95n9em3wtrca7tdzp.whl -O \
-    torch-1.5.0-cp36-cp36m-linux_aarch64.whl \
-    && pip3 install torch-1.5.0-cp36-cp36m-linux_aarch64.whl torchvision \
-    && rm -rf torch-1.5.0-cp36-cp36m-linux_aarch64.whl 
+# Installing PyTorch
+# RUN wget https://nvidia.box.com/shared/static/3ibazbiwtkl181n95n9em3wtrca7tdzp.whl -O \
+#     torch-1.5.0-cp36-cp36m-linux_aarch64.whl \
+#     && pip3 install torch-1.5.0-cp36-cp36m-linux_aarch64.whl \
+#     && rm -rf torch-1.5.0-cp36-cp36m-linux_aarch64.whl 
 
+# # # Installing torchvision
+# RUN cd ${HOME} && git clone --branch release/0.6 https://github.com/pytorch/vision torchvision \
+#     && cd torchvision \
+#     && export BUILD_VERSION=0.6.0 \
+#     && python3 setup.py install --user \
+#     && cd ../ \
+#     && pip install 'pillow<7'
 
 ####################################### procman ###########################################
 
@@ -187,22 +194,20 @@ RUN wget https://github.com/IntelRealSense/librealsense/archive/v${LIBREALSENSE_
 
 ######################################## torch2trt ########################################
 
-RUN cd ${HOME} && git clone https://github.com/NVIDIA-AI-IOT/torch2trt \
-    && cd torch2trt
-    # && python3 setup.py install --plugins
+# RUN cd ${HOME} && git clone https://github.com/NVIDIA-AI-IOT/torch2trt \
+#     && cd torch2trt \
+#     && python3 setup.py install --plugins
 
 ######################################## trt_pose ########################################
 
-RUN cd ${HOME} && git clone https://github.com/NVIDIA-AI-IOT/trt_pose \
-    && cd trt_pose
-    # && python3 setup.py install
+# RUN cd ${HOME} && git clone https://github.com/NVIDIA-AI-IOT/trt_pose \
+#     && cd trt_pose \
+#     && python3 setup.py install
 
 ##################################### Setting #####################################
 
 RUN chown -R ${USER}:${USER} ${HOME}/
-RUN echo "seadrone ALL=(ALL)  ALL" > /etc/sudoers
-
-RUN echo "cd ~/project_hand" >> ${HOME}/.bashrc
+RUN echo "${USER} ALL=(ALL)  ALL" > /etc/sudoers
 
 # Support of nvidia-docker 2.0
 ENV NVIDIA_VISIBLE_DEVICES=all
@@ -216,3 +221,4 @@ ENTRYPOINT ["/ros_entrypoint.sh"]
 USER ${USER}
 
 WORKDIR ${HOME}
+CMD ["bash"]

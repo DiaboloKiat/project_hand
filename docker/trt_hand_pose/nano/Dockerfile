@@ -1,4 +1,4 @@
-FROM nvcr.io/nvidia/l4t-pytorch:r32.4.2-pth1.5-py3
+FROM nvcr.io/nvidia/l4t-pytorch:r32.5.0-pth1.7-py3
 
 ############################ USER ###############################
 # setup environment
@@ -194,15 +194,15 @@ RUN wget https://github.com/IntelRealSense/librealsense/archive/v${LIBREALSENSE_
 
 ######################################## torch2trt ########################################
 
-# RUN cd ${HOME} && git clone https://github.com/NVIDIA-AI-IOT/torch2trt \
-#     && cd torch2trt \
-#     && python3 setup.py install --plugins
+RUN cd ${HOME} && git clone https://github.com/NVIDIA-AI-IOT/torch2trt \
+    && cd torch2trt 
+    # && python3 setup.py install --plugins
 
 ######################################## trt_pose ########################################
 
-# RUN cd ${HOME} && git clone https://github.com/NVIDIA-AI-IOT/trt_pose \
-#     && cd trt_pose \
-#     && python3 setup.py install
+RUN cd ${HOME} && git clone https://github.com/NVIDIA-AI-IOT/trt_pose \
+    && cd trt_pose 
+    # && python3 setup.py install
 
 ##################################### Setting #####################################
 

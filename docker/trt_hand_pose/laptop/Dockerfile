@@ -227,7 +227,7 @@ RUN chmod +x /ros_entrypoint.sh
 ENTRYPOINT ["/ros_entrypoint.sh"]
 
 # Pytorch model
-COPY ./resnet18-5c106cde.pth /home/arg-medical/.cache/torch/checkpoints/
+COPY ./resnet18-5c106cde.pth /home/diabolokiat/.cache/torch/checkpoints/
 
 USER ${USER}
 

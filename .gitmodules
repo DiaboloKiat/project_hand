@@ -1,18 +1,24 @@
 [submodule "catkin_ws/src/egohands_ros"]
 	path = catkin_ws/src/egohands_ros
 	url = git@github.com:DiaboloKiat/egohands_ros.git
+	ignore = dirty
 [submodule "catkin_ws/src/bodyparts_ros"]
 	path = catkin_ws/src/bodyparts_ros
 	url = git@github.com:DiaboloKiat/bodyparts_ros.git
+	ignore = dirty
 [submodule "catkin_ws/src/ggcnn_humanseg_ros"]
 	path = catkin_ws/src/ggcnn_humanseg_ros
 	url = git@github.com:DiaboloKiat/ggcnn_humanseg_ros.git
+	ignore = dirty
 [submodule "catkin_ws/src/sensors/realsense-ros"]
 	path = catkin_ws/src/sensors/realsense-ros
 	url = git@github.com:IntelRealSense/realsense-ros.git
+	ignore = dirty
 [submodule "catkin_ws/src/sensors/vision_opencv"]
 	path = catkin_ws/src/sensors/vision_opencv
 	url = git@github.com:ros-perception/vision_opencv.git
+	ignore = dirty
 [submodule "catkin_ws/src/hand-gesture-recognition-using-mediapipe"]
 	path = catkin_ws/src/hand-gesture-recognition-using-mediapipe
 	url = git@github.com:DiaboloKiat/hand-gesture-recognition-using-mediapipe.git
+	ignore = dirty

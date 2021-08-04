@@ -75,6 +75,21 @@ if [ "$CONFLICTS" -gt 0 ] ; then
    return 1
 fi
 
+BRANCH=main
+echo "---------------------------------------------------------------------------"
+echo "--------------------------pull mediapipe-----------------------------------"
+echo "---------------------------------------------------------------------------"
+cd ~/project_hand/catkin_ws/src/hand-gesture-recognition-using-mediapipe
+git checkout $BRANCH
+git pull
+
+CONFLICTS=$(git ls-files -u | wc -l)
+if [ "$CONFLICTS" -gt 0 ] ; then
+   echo "There is conflict in mediapipe. Aborting"
+   return 1
+fi
+
+
 BRANCH=master
 echo "---------------------------------------------------------------------------"
 echo "--------------------------pull realsense-ros-------------------------------"

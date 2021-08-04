@@ -13,3 +13,6 @@
 [submodule "catkin_ws/src/sensors/vision_opencv"]
 	path = catkin_ws/src/sensors/vision_opencv
 	url = git@github.com:ros-perception/vision_opencv.git
+[submodule "catkin_ws/src/hand-gesture-recognition-using-mediapipe"]
+	path = catkin_ws/src/hand-gesture-recognition-using-mediapipe
+	url = git@github.com:DiaboloKiat/hand-gesture-recognition-using-mediapipe.git

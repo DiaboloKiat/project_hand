@@ -1,5 +1,3 @@
-touch ./catkin_ws/src/bodyparts_ros/CATKIN_IGNORE
-touch ./catkin_ws/src/egohands_ros/CATKIN_IGNORE
 touch ./catkin_ws/src/ggcnn_humanseg_ros/CATKIN_IGNORE
 
 # vision_opencv

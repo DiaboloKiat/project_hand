@@ -124,7 +124,7 @@ RUN pip3 install --upgrade pip setuptools
 RUN pip3 install --upgrade \
     gym \
     numpy \
-    tensorflow==1.14.0 \
+    tensorflow==1.15.0 \
     gast==0.2.2 \
     matplotlib \
     pandas \

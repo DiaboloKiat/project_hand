@@ -1,4 +1,4 @@
-FROM nvidia/cuda:11.3.0-cudnn8-runtime-ubuntu18.04
+FROM nvidia/cuda:11.0-cudnn8-devel-ubuntu18.04
 
 
 ENV DEBIAN_FRONTEND noninteractive
@@ -124,7 +124,7 @@ RUN pip3 install --upgrade pip setuptools
 RUN pip3 install --upgrade \
     gym \
     numpy \
-    tensorflow==1.15.0 \
+    tensorflow==1.15.4 \
     gast==0.2.2 \
     matplotlib \
     pandas \
@@ -207,6 +207,14 @@ RUN cd ${HOME} && mkdir /bazel \
 RUN cd ${HOME} && git clone https://github.com/google/mediapipe.git
     # && cd mediapipe \
     # && sed -i "s/x86_64-linux-gnu/aarch64-linux-gnu/g" third_party/opencv_linux.BUILD
+
+####################################### Pytorch ###########################################
+
+RUN pip3 install \
+    torch==1.7.1+cu110 \
+    torchvision==0.8.2+cu110 \
+    torchaudio==0.7.2 \
+    -f https://download.pytorch.org/whl/torch_stable.html
 
 ##################################### Setting #####################################
 
